@@ -331,22 +331,4 @@ function getSecondsUntilMidnight() {
 }
 
 // Export all functions
-export {
-  getKey,
-  setKey,
-  listKeys,
-  getContext,
-  setContext,
-  clearContext,
-  getUserPreferences,
-  setUserPreference,
-  getUserQuota,
-  setUserQuota,
-  getCachedSearch,
-  setCachedSearch,
-  logError,
-  getErrorLogs,
-  generateNewKey,
-  validateAndActivateKey,
-  backupData
-};
+export { };

@@ -145,4 +145,4 @@ async function handleDocumentMessage(document, userId, env) {
 }
 
 // Export message handler
-export { handleMessage };
+export { };

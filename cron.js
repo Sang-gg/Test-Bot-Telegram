@@ -175,8 +175,4 @@ export async function createHourlyBackup(env) {
 }
 
 // Export all functions
-export {
-  resetDailyQuotas,
-  cleanupExpiredData,
-  createHourlyBackup
-};
+export { };

@@ -287,16 +287,5 @@ export function formatStyleMenu(currentStyle) {
 
 // Export all formatting functions
 export {
-  STYLES,
-  formatMessage,
-  formatAIResponse,
-  formatError,
-  formatSearchResults,
-  generateProgressMessage,
-  formatFileAnalysis,
-  formatQuotaStatus,
-  formatSystemStatus,
-  formatHelpMenu,
-  formatModelMenu,
-  formatStyleMenu
+  STYLES
 };

@@ -551,4 +551,4 @@ async function getErrorLogs(env) {
   return [];
 }
 
-export { handleCommand };
+export { };

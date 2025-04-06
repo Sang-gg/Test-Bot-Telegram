@@ -287,8 +287,4 @@ async function getDocumentText(url) {
 // Export all functions
 export {
   AI_MODELS,
-  getAIResponse,
-  analyzeImage,
-  analyzeDocument,
-  searchWeb
 };
