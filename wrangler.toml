@@ -1,0 +1,63 @@
+name = "telegram-ai-bot"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+
+# Worker configuration
+[build]
+command = ""
+watch_dir = "."
+
+[build.upload]
+format = "modules"
+main = "worker.js"
+
+# KV Namespace bindings
+kv_namespaces = [
+  { binding = "CHAT_CONTEXTS", id = "CHAT_CONTEXTS" },
+  { binding = "USER_KEYS", id = "USER_KEYS" },
+  { binding = "USER_QUOTAS", id = "USER_QUOTAS" },
+  { binding = "SEARCH_CACHE", id = "SEARCH_CACHE" },
+  { binding = "ERROR_LOGS", id = "ERROR_LOGS" }
+]
+
+# Durable Object binding
+[durable_objects]
+bindings = [
+  { name = "CHAT_PROCESSOR", class_name = "ChatProcessor" }
+]
+
+# Define Durable Object class
+[[migrations]]
+tag = "v1"
+new_classes = ["ChatProcessor"]
+
+# Cron triggers
+[triggers]
+crons = [
+  # Reset quotas at midnight UTC
+  "0 0 * * *",
+  # Clean up expired data every 30 minutes
+  "*/30 * * * *",
+  # Create backup every hour
+  "0 * * * *"
+]
+
+# Environment variables
+[vars]
+BOT_TOKEN = "YOUR_BOT_TOKEN"
+BOT_TELEGRAM_ID = "YOUR_BOT_TOKEN"
+ADMIN_CHAT_ID = "YOUR_ADMIN_CHAT_ID"
+CHATGPT_API_KEY = "YOUR_CHATGPT_API_KEY"
+GEMINI_API_KEY = "YOUR_GEMINI_API_KEY"
+GROK_API_KEY = "YOUR_GROKGROK_API_KEY"
+
+# Development environment settings
+[env.development]
+name = "telegram-ai-bot-dev"
+workers_dev = true
+
+# Production environment settings
+[env.production]
+name = "telegram-ai-bot"
+route = "your-production-route.workers.dev/*"
+workers_dev = false
